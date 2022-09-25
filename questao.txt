@@ -1,0 +1,2 @@
+02). Dados 2 vetores inteiros positivos, extrai os pares do primeiro vetor, os impares do segundo vetor e
+devolva um vetor único, alternando os valores de ambos.
