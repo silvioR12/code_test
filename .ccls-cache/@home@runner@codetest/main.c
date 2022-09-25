@@ -98,21 +98,11 @@ void printVET_IMPAR(int *vet,int limite){
   printf("}");
 }
 
-
-/*Função - Inserir de forma alternada os valores dos elementos pares e ímpares no vetor único*/
-
-int insertAB (int *vetPAR,int *vetIMPAR,int *vetAB,int limite){
-  int cont;
-  int contAUX = 0;
-  
-  return contAUX;
-}
-
 /*Função que imprime os valores do vetor AB*/
 
 void printVETAB(int *vetAB,int limite){
   int cont;
-  printf("\nvetorAB = {");
+  printf("\n\nvetorAB = {");
   for(cont = 0;cont<limite;cont++){
     if (cont+1 == limite){
        printf("%d",vetAB[cont]);
@@ -121,6 +111,7 @@ void printVETAB(int *vetAB,int limite){
       printf("%d,",vetAB[cont]);
     }
   }
+  printf("}");
 }
 
 int main(void) {
@@ -141,6 +132,8 @@ int main(void) {
   printVET_B(vetB, size_B);//Imprimindo o vetorB
   printVET_IMPAR(vetIMPAR_B, sizevetIMPAR_B);//Imprimindo os valores do vetor que armazenou impar
   //vetor AB(Valores alternando)
-  sizevetAB = insertAB(vetPAR_A,vetIMPAR_B,vetAB,sizevetPAR_A+sizevetIMPAR_B);//Pegando tamanho e inserindo os valores
+  sizevetAB = sizevetPAR_A + sizevetIMPAR_B;
+  memcpy( vetAB, vetPAR_A, sizeof(vetPAR_A) );
+  memcpy( vetAB + sizevetIMPAR_B , vetIMPAR_B, sizeof(vetIMPAR_B) );
   printVETAB(vetAB, sizevetAB);
 }
